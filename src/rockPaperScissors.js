@@ -16,6 +16,7 @@ function Rules() {
 					[paper,scissors,'scissors cut paper']]
 
 }
+
 function Draw() {}
 
 Rules.prototype.theWinnerIs = function(gestureOne, gestureTwo) {
@@ -23,7 +24,6 @@ Rules.prototype.theWinnerIs = function(gestureOne, gestureTwo) {
 	if (gestureOne === gestureTwo) return new Draw
 	
 	return findWinner(findRule(this.winner))
-
 
 	function findWinner(remainingRules) {
 		winner = remainingRules.filter(function (rule) { return rule.indexOf(gestureOne) != -1 })
@@ -33,7 +33,5 @@ Rules.prototype.theWinnerIs = function(gestureOne, gestureTwo) {
 	function findRule(rules) {
 		return rules.filter(function(rule){ return rule.indexOf(gestureTwo) != -1 }).map( function(rule) { return rule })
 	}
-
-
 
 }

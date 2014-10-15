@@ -5,12 +5,11 @@ describe("rock paper scissors game", function() {
 
 	describe("In the gestures", function() {
 
-		beforeEach(function() {
 		rock = new Rock
 		paper = new Paper
 		scissors = new Scissors
-		rules = new Rules 
-		})
+		rules = new Rules
+		draw = new Draw
 
 		it("should be a rock", function() {
 			expect(rock.type).toEqual(Rock)
@@ -28,15 +27,6 @@ describe("rock paper scissors game", function() {
 
 	describe("The rules are", function() {
 
-		beforeEach(function() {
-		rock = new Rock
-		paper = new Paper
-		scissors = new Scissors
-		rules = new Rules
-		draw = new Draw
-		})
-
-
 		it("rock should win over scissors", function() {
 			expect(rules.theWinnerIs(scissors, rock)).toEqual('rock crushes scissors')
 		})
@@ -45,7 +35,7 @@ describe("rock paper scissors game", function() {
 			expect(rules.theWinnerIs(rock, paper)).toEqual('paper covers rock')
 		})
 
-		it("should return draw in both gestures are equal", function() {
+		it("should return draw if both gestures are equal", function() {
 			expect(rules.theWinnerIs(rock,rock)).toEqual(draw)
 		})
 	
