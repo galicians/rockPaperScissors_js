@@ -227,5 +227,5 @@ if an object can't respond to a message will look for a response in its prototyp
 
 .load filename
 
-
+remember to call an object, as foo.Rock or as foo["Rock"]
 

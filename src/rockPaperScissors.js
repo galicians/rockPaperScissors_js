@@ -19,14 +19,21 @@ function Rules() {
 function Draw() {}
 
 Rules.prototype.theWinnerIs = function(gestureOne, gestureTwo) {
+	
 	if (gestureOne === gestureTwo) return new Draw
-	result = this.winner.filter(function (z) { return z.indexOf(gestureOne) != -1 }).filter(function (y) {return y.indexOf(gestureTwo) != -1 }).map( function(x) { return x})
-	return result[0][2]
 	
-	// function findGestures(rules) {
-	// 	return rules.filter(function(y){return y.indexOf(gestureTwo) != -1 }).map( function(x) { return x})
-	// }
+	return findWinner(findRule(this.winner))
 
+
+	function findWinner(remainingRules) {
+		winner = remainingRules.filter(function (rule) { return rule.indexOf(gestureOne) != -1 })
+		return winner[0][2]
+	}
 	
+	function findRule(rules) {
+		return rules.filter(function(rule){ return rule.indexOf(gestureTwo) != -1 }).map( function(rule) { return rule })
+	}
+
+
 
 }
